@@ -111,15 +111,22 @@
 	  (function () {
 	    if ('/' == location.pathname) {
 	      __webpack_require__(43);
-	      $('body').css({'overflow':'hidden'});
+	      $('body').css({'overflow': 'hidden'});
 	      $("div.slider-wrap").slide({
-	        autoPage:true,
-	        titCell:'.hd ul',
+	        autoPage: true,
+	        titCell: '.hd ul',
 	        mainCell: ".bd ul.sliders",
 	        autoPlay: true,
-	        interTime:100000,
-	        delayTime:1000,
-	        effect:'fold'
+	        interTime: 100000,
+	        delayTime: 1000,
+	        effect: 'fold'
+	      });
+	      $('#btn-begin-blog').on('click', function (e) {
+	        e.preventDefault();
+	        $('div.overviews').fadeOut('slow', function () {
+	          $('body').css({'overflow': 'auto'});
+	          sessionStorage.setItem('overviews', 1);
+	        });
 	      });
 	    }
 	  })();
